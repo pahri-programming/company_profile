@@ -1,0 +1,55 @@
+@extends('layouts.admin')
+@section('content')
+    <div class="row">
+        <!-- [ sample-page ] start -->
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="card">
+                        <div class="card-header">Data Informasi
+                        </div>
+                        <div class="card-body">
+                            @if (session('success'))
+                                <div class="alert alert-success alert-dimissible fade show" role="alert">
+                                    {{ session('success') }}
+                                    <button type="button" class="btn-close" data-bs-dimiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            @endif
+                            <table class="table table-responsive mx-auto">
+                                <form action="{{ route('informasi.store') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="form-group">
+                                        <label for="">Judul</label>
+                                        <input type="text" name="judul" class="form-control @error('judul') is-invalid @enderror">
+                                        @error('judul')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="deskripsi">Deskripsi</label><br>
+                                        <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" rows="4"></textarea>
+                                        @error('deskripsi')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>      
+                                    <div class="form-group">
+                                        <label for="">photo</label>
+                                        <input type="file" name="photo" id=""
+                                            class="form-control @error('photo') is-invalid @enderror">
+                                        @error('photo')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-2">
+                                        <button class="btn btn-primary" type="submit">Simpan</button>
+                                    </div>
+                                </form>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
