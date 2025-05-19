@@ -4,6 +4,7 @@ use App\Http\Controllers\EskulController;
 use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/',[FrontController::class, 'index']);
 route::prefix('admin')->middleware('auth')->group(function () {
@@ -32,5 +33,6 @@ route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('karyawan', KaryawanController::class);
     Route::resource('eskul', EskulController::class);
     Route::resource('fasilitas', FasilitasController::class);
+    Route::resource('prestasi', PrestasiController::class);
 
 });

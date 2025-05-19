@@ -21,18 +21,27 @@
                                     @csrf
                                     <div class="form-group">
                                         <label for="">Judul</label>
-                                        <input type="text" name="judul" class="form-control @error('judul') is-invalid @enderror">
+                                        <input type="text" name="judul"
+                                            class="form-control @error('judul') is-invalid @enderror">
                                         @error('judul')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="deskripsi">Deskripsi</label><br>
-                                        <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" rows="4"></textarea>
+                                        <textarea id="deskripsi" name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" rows="4"></textarea>
                                         @error('deskripsi')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
-                                    </div>      
+                                    </div>
+                                    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+                                    <script>
+                                        ClassicEditor
+                                            .create(document.querySelector('#deskripsi'))
+                                            .catch(error => {
+                                                console.error(error);
+                                            });
+                                    </script>   
                                     <div class="form-group">
                                         <label for="">photo</label>
                                         <input type="file" name="photo" id=""

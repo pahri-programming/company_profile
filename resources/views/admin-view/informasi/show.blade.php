@@ -30,8 +30,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">Photo</label><br>
-                                    <img src="{{ asset('storage/informasi/' . $informasi->photo) }}" alt=""
-                                        style="width: 100px; height: 100px;">
+                                    <img src="{{ asset('storage/informasi/' . $informasi->photo) }}" alt="">
                                 </div>
                                 <div class="mb-2">
                                     <a href="{{ route('informasi.index') }}" class="btn btn-primary ">Kembali</a>

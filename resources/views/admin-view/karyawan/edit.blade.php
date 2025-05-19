@@ -30,34 +30,73 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="">Jenis Kelamin</label>
-                                        <select name="jenis_kelamin" id="" class="form-control"
-                                            @error('jenis_kelamin') is-invalid @enderror
-                                            value="{{ $karyawan->jenis_kelamin }}">
-                                            <option value="Laki-laki">Laki-laki</option>
-                                            <option value="Perempuan">Perempuan</option>
-                                            @error('jenis_kelamin')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
+                                        <label>Jenis Kelamin</label>
+                                        <select name="jenis_kelamin"
+                                            class="form-control @error('jenis_kelamin') is-invalid @enderror">
+                                            <option value="Laki-laki"
+                                                {{ $karyawan->jenis_kelamin == 'Laki-laki' ? 'selected' : '' }}>Laki-laki
+                                            </option>
+                                            <option value="Perempuan"
+                                                {{ $karyawan->jenis_kelamin == 'Perempuan' ? 'selected' : '' }}>Perempuan
+                                            </option>
                                         </select>
+                                        @error('jenis_kelamin')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label>Tugas</label>
-                                        <input type="text" class="form-control" name="tugas"
-                                            @error('tugas') is-invalid @enderror value="{{ $karyawan->tugas }}">
+                                        <select name="tugas" class="form-control @error('tugas') is-invalid @enderror">
+                                            <option value="b.indonesia"
+                                                {{ old('tugas', $karyawan->tugas) == 'b.indonesia' ? 'selected' : '' }}>
+                                                B.indonesia</option>
+                                            <option value="b.inggris"
+                                                {{ old('tugas', $karyawan->tugas) == 'b.inggris' ? 'selected' : '' }}>
+                                                B.Inggris</option>
+                                            <option value="penjaskes"
+                                                {{ old('tugas', $karyawan->tugas) == 'penjaskes' ? 'selected' : '' }}>
+                                                Penjaskes</option>
+                                            <option value="ppkn"
+                                                {{ old('tugas', $karyawan->tugas) == 'ppkn' ? 'selected' : '' }}>Ppkn
+                                            </option>
+                                            <option value="Matematika"
+                                                {{ old('tugas', $karyawan->tugas) == 'Matematika' ? 'selected' : '' }}>
+                                                Matematika</option>
+                                            <option value="Kimia"
+                                                {{ old('tugas', $karyawan->tugas) == 'Kimia' ? 'selected' : '' }}>Kimia
+                                            </option>
+                                        </select>
                                         @error('tugas')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group">
                                         <label>Jabatan</label>
-                                        <input type="text" class="form-control" name="jabatan"
-                                            @error('jabatan') is-invalid @enderror value="{{ $karyawan->jabatan }}"
-                                        >
+                                        <select class="form-control @error('jabatan') is-invalid @enderror" name="jabatan">
+                                            <option value="tata usaha"
+                                                {{ old('jabatan', $karyawan->jabatan) == 'tata usaha' ? 'selected' : '' }}>
+                                                Tata Usaha</option>
+                                            <option value="guru"
+                                                {{ old('jabatan', $karyawan->jabatan) == 'guru' ? 'selected' : '' }}>Guru
+                                            </option>
+                                            <option value="kepala sekolah"
+                                                {{ old('jabatan', $karyawan->jabatan) == 'kepala sekolah' ? 'selected' : '' }}>
+                                                Kepala Sekolah</option>
+                                            <option value="staf"
+                                                {{ old('jabatan', $karyawan->jabatan) == 'staf' ? 'selected' : '' }}>Staff
+                                            </option>
+                                            <option value="bimbingan konseling"
+                                                {{ old('jabatan', $karyawan->jabatan) == 'bimbingan konseling' ? 'selected' : '' }}>
+                                                Bimbingan Konseling</option>
+                                            <option value="wakil kepala sekolah"
+                                                {{ old('jabatan', $karyawan->jabatan) == 'wakil kepala sekolah' ? 'selected' : '' }}>
+                                                Wakil Kepala Sekolah</option>
+                                        </select>
                                         @error('jabatan')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
+
                                     <div class="form-group">
                                         <label for="">Ganti Photo</label>
                                         <img src="{{ asset('storage/karyawan/' . $karyawan->photo) }}" alt=""

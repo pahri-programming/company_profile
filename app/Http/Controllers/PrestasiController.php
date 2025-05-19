@@ -1,10 +1,10 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\Fasilitas;
+use App\Models\Prestasi;
 use Illuminate\Http\Request;
 
-class FasilitasController extends Controller
+class PrestasiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,8 @@ class FasilitasController extends Controller
      */
     public function index()
     {
-        $fasilitas = Fasilitas::all();
-        return view('admin-view.fasilitas.index', compact('fasilitas'));
+        $prestasi = Prestasi::all();
+        return view('admin-view.prestasi.index', compact('prestasi'));
 
     }
 
@@ -25,7 +25,7 @@ class FasilitasController extends Controller
      */
     public function create()
     {
-        return view('admin-view.fasilitas.create');
+        return view('admin-view.prestasi.create');
     }
 
     /**
@@ -37,25 +37,31 @@ class FasilitasController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nama_fasilitas' => 'required',
-            'photo'          => 'nullable|mimes:jpg,png|max:1024',
+            'tgl_prestasi'  => 'required',
+            'nama_prestasi' => 'required',
+            'tingkat'       => 'required',
+            'deskripsi'     => 'required',
+            'photo'         => 'nullable|mimes:jpg,png|max:1024',
         ]);
 
-        $fasilitas                 = new Fasilitas();
-        $fasilitas->nama_fasilitas = $request->nama_fasilitas;
+        $prestasi                = new Prestasi();
+        $prestasi->tgl_prestasi  = $request->tgl_prestasi;
+        $prestasi->nama_prestasi = $request->nama_prestasi;
+        $prestasi->tingkat       = $request->tingkat;
+        $prestasi->deskripsi     = $request->deskripsi;
 
         if ($request->hasFile('photo')) {
             $img  = $request->file('photo');
             $name = rand(1000, 9999) . $img->getClientOriginalName();
-            $img->move('storage/fasilitas', $name);
-            $fasilitas->photo = $name;
+            $img->move('storage/prestasi', $name);
+            $prestasi->photo = $name;
         }
 
-        $fasilitas->save();
+        $prestasi->save();
 
         session()->flash('success', 'Data berhasil ditambahkan');
 
-        return redirect()->route('fasilitas.index');
+        return redirect()->route('prestasi.index');
 
     }
 
@@ -67,8 +73,8 @@ class FasilitasController extends Controller
      */
     public function show($id)
     {
-        $fasilitas = Fasilitas::findOrFail($id);
-        return view('admin-view.fasilitas.show', compact('fasilitas'));
+        $prestasi = Prestasi::findOrFail($id);
+        return view('admin-view.prestasi.show', compact('prestasi'));
 
     }
 
@@ -80,8 +86,8 @@ class FasilitasController extends Controller
      */
     public function edit($id)
     {
-        $fasilitas = Fasilitas::findOrFail($id);
-        return view('admin-view.fasilitas.edit', compact('fasilitas'));
+        $prestasi = Prestasi::findOrFail($id);
+        return view('admin-view.prestasi.edit', compact('prestasi'));
 
     }
 
@@ -95,26 +101,32 @@ class FasilitasController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'nama_fasilitas' => 'required',
-            'photo'          => 'nullable|mimes:jpg,png|max:1024',
+            'tgl_prestasi'  => 'required',
+            'nama_prestasi' => 'required',
+            'tingkat'       => 'required',
+            'deskripsi'     => 'required',
+            'photo'         => 'nullable|mimes:jpg,png|max:1024',
         ]);
 
-        $fasilitas                 = Fasilitas::findOrFail($id);
-        $fasilitas->nama_fasilitas = $request->nama_fasilitas;
+        $prestasi                = Prestasi::findOrFail($id);
+        $prestasi->tgl_prestasi  = $request->tgl_prestasi;
+        $prestasi->nama_prestasi = $request->nama_prestasi;
+        $prestasi->tingkat       = $request->tingkat;
+        $prestasi->deskripsi     = $request->deskripsi;
 
         if ($request->hasFile('photo')) {
-            $fasilitas->deleteImage();
+            $prestasi->deleteImage();
             $img  = $request->file('photo');
             $name = rand(1000, 9999) . $img->getClientOriginalName();
-            $img->move('storage/fasilitas', $name);
-            $fasilitas->photo = $name;
+            $img->move('storage/prestasi', $name);
+            $prestasi->photo = $name;
         }
 
-        $fasilitas->save();
+        $prestasi->save();
 
         session()->flash('success', 'Data berhasil diUbah');
 
-        return redirect()->route('fasilitas.index');
+        return redirect()->route('prestasi.index');
 
     }
 
@@ -126,10 +138,10 @@ class FasilitasController extends Controller
      */
     public function destroy($id)
     {
-        $fasilitas = Fasilitas::findOrFail($id);
-        $fasilitas->delete();
+        $prestasi = Prestasi::findOrFail($id);
+        $prestasi->delete();
         session()->flash('success', 'Data berhasil dihapus');
-        return redirect()->route('fasilitas.index');
+        return redirect()->route('prestasi.index');
 
     }
 }

@@ -27,25 +27,40 @@
                                          @enderror
                                      </div>
                                      <div class="form-group">
-                                         <label for="">Jenis Kelamin</label>
-                                         <select name="jenis_kelamin" id="" class="form-control">
+                                         <label>Jenis Kelamin</label>
+                                         <select name="jenis_kelamin" class="form-control"
+                                             @error('jenis_kelamin') is-invalid @enderror>
                                              <option value="Laki-laki">Laki-laki</option>
                                              <option value="Perempuan">Perempuan</option>
-                                             @error('jenis_kelamin')
-                                                 <div class="invalid-feedback">{{ $message }}</div>
-                                             @enderror
                                          </select>
+                                         @error('jenis_kelamin')
+                                             <div class="invalid-feedback">{{ $message }}</div>
+                                         @enderror
                                      </div>
                                      <div class="form-group">
-                                         <label for="">Tugas</label>
-                                         <input type="text" name="tugas" class="form-control">
+                                         <label>Tugas</label>
+                                         <select name="tugas" class="form-control" @error('tugas') is-invalid @enderror>
+                                             <option value="b.indonesia">B.indonesia</option>
+                                             <option value="b.inggris">B.Inggris</option>
+                                             <option value="penjaskes">Penjaskes</option>
+                                             <option value="ppkn">Ppkn</option>
+                                             <option value="Matematika">Matematika</option>
+                                             <option value="Kimia">Kimia</option>
+                                         </select>
                                          @error('tugas')
                                              <div class="invalid-feedback">{{ $message }}</div>
                                          @enderror
                                      </div>
                                      <div class="form-group">
-                                         <label for="">Jabatan</label>
-                                         <input type="text" name="jabatan" class="form-control">
+                                         <label>Jabatan</label>
+                                         <select class="form-control" @error('jabatan') is-invalid @enderror name="jabatan">
+                                             <option value="tata usaha">Tata Usaha</option>
+                                             <option value="guru">Guru</option>
+                                             <option value="kepala sekolah">Kepala Sekolah</option>
+                                             <option value="staf">Staff</option>
+                                             <option value="bimbingan konseling">Bimbingan Konseling</option>
+                                             <option value="wakil kepala sekolah">Wakil Kepala Sekolah</option>
+                                         </select>
                                          @error('jabatan')
                                              <div class="invalid-feedback">{{ $message }}</div>
                                          @enderror

@@ -17,26 +17,44 @@
                                 </div>
                             @endif
                             <table class="table table-responsive">
-                                <form action="{{ route('informasi.update', $informasi->id) }}" method="POST"
+                                <form action="{{ route('prestasi.update', $prestasi->id) }}" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <div class="form-group">
-                                        <label>Judul</label>
-                                        <input type="text" class="form-control" name="judul"
-                                            @error('judul') is-invalid @enderror value="{{ $informasi->judul }}">
-                                        @error('judul')
+                                        <label>Tanggal Prestasi</label>
+                                        <input type="date" class="form-control" name="tgl_prestasi"
+                                            @error('tgl_prestasi') is-invalid @enderror
+                                            value="{{ $prestasi->tgl_prestasi }}">
+                                        @error('tgl_prestasi')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Nama Prestasi</label>
+                                        <input type="text" class="form-control" name="nama_prestasi"
+                                            @error('nama_prestasi') is-invalid @enderror
+                                            value="{{ $prestasi->nama_prestasi }}">
+                                        @error('nama_prestasi')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tingkat</label>
+                                        <input type="text" class="form-control" name="tingkat"
+                                            @error('tingkat') is-invalid @enderror
+                                            value="{{ $prestasi->tingkat }}">
+                                        @error('tingkat')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="deskripsi">Deskripsi</label><br>
-                                        <textarea id="deskripsi" name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror custom-textarea">{{ old('deskripsi', $informasi->deskripsi) }}</textarea>
+                                        <textarea id="deskripsi" name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror custom-textarea">{{ old('deskripsi', $prestasi->deskripsi) }}</textarea>
                                         @error('deskripsi')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
-
                                     <style>
                                         .ck-editor__editable_inline {
                                             min-height: 150px;
@@ -45,7 +63,6 @@
                                             padding: 12px;
                                         }
                                     </style>
-
                                     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
                                     <script>
                                         ClassicEditor
@@ -54,10 +71,9 @@
                                                 console.error(error);
                                             });
                                     </script>
-
                                     <div class="form-group">
                                         <label for="">Ganti Photo</label>
-                                        <img src="{{ asset('storage/informasi/' . $informasi->photo) }}" alt=""
+                                        <img src="{{ asset('storage/prestasi/' . $prestasi->photo) }}" alt=""
                                             style="width: 100px; height: 100px;">
                                         <input type="file" class="form-control" name="photo">
                                     </div>
