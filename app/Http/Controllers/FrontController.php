@@ -5,6 +5,7 @@ use App\Models\Eskul;
 use App\Models\Fasilitas;
 use App\Models\informasi;
 use App\Models\karyawan;
+use App\Models\Prestasi;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -20,73 +21,18 @@ class FrontController extends Controller
         $karyawan  = karyawan::all();
         $eskul     = Eskul::all();
         $fasilitas = Fasilitas::all();
+        $prestasi = Prestasi::all();
 
-        return view('welcome', compact('informasi', 'karyawan', 'eskul', 'fasilitas'));
+        return view('welcome', compact('informasi', 'karyawan', 'eskul', 'fasilitas','prestasi'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+  public function informasi(){
+    $informasi = Informasi::all();
+    return view('informasi',compact('informasi'));
+  }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+  public function detailInformasi($id){
+    $informasi = informasi::findOrFail($id);
+    return view('detail_informasi', compact('informasi'));
+  }
 }

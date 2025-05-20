@@ -26,7 +26,7 @@
                         <div class="card-body">
                             <h6 class="mb-2 f-w-400 text-muted">Total Order</h6>
                             <h4 class="mb-3">18,800 <span class="badge bg-light-warning border border-warning"><i
-                                        class="ti ti-trending-down"></i> 27.4%</span></h4>
+                            class="ti ti-trending-down"></i> 27.4%</span></h4>
                         </div>
                     </div>
                 </div>

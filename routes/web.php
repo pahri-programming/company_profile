@@ -2,10 +2,10 @@
 
 use App\Http\Controllers\EskulController;
 use App\Http\Controllers\FasilitasController;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\PrestasiController;
-use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +25,10 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['register' => false]);
 
-Route::get('/',[FrontController::class, 'index']);
+Route::get('/', [FrontController::class, 'index']);
+Route::get('/informasi', [FrontController::class, 'informasi']);
+Route::get('/informasi/{id}', [FrontController::class, 'detailInformasi'])->name('detailInformasi');
+
 route::prefix('admin')->middleware('auth')->group(function () {
 
     Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

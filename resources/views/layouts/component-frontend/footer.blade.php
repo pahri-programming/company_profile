@@ -1,71 +1,46 @@
 <footer id="footer" class="footer position-relative light-background">
-        <div class="container footer-top">
-            <div class="row gy-4">
-                <div class="col-lg-4 col-md-6 footer-about">
-                    <a href="index.html" class="logo d-flex align-items-center">
-                        <span class="sitename">Mentor</span>
-                    </a>
-                    <div class="footer-contact pt-3">
-                        <p>A108 Adam Street</p>
-                        <p>New York, NY 535022</p>
-                        <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-                        <p><strong>Email:</strong> <span>info@example.com</span></p>
-                    </div>
-                    <div class="social-links d-flex mt-4">
-                        <a href=""><i class="bi bi-twitter-x"></i></a>
-                        <a href=""><i class="bi bi-facebook"></i></a>
-                        <a href=""><i class="bi bi-instagram"></i></a>
-                        <a href=""><i class="bi bi-linkedin"></i></a>
-                    </div>
+    <div class="container footer-top">
+        <div class="row gy-4">
+            <!-- Kolom kiri: informasi kontak -->
+            <div class="col-lg-6 col-md-6 footer-about">
+                <a href="index.html" class="logo d-flex align-items-center">
+                    <span class="sitename">Kontak</span>
+                </a>
+                <div class="footer-contact pt-3">
+                    <p>Admin Sma 1 Baleendah</p>
+                    <p class="mt-3"><strong>Alamat:</strong>
+                        Jl. Raa Wiranatakusumah No.30, Baleendah, Bandung, Jawa Barat 40375, Indonesia</p>
+                    <p class="mt-3"><strong>Phone:</strong> <span>(022)5940283</span></p>
+                    <p><strong>Email:</strong> <span>Sma1Baleendah@Gmail.com</span></p>
                 </div>
-
-                <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Useful Links</h4>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Terms of service</a></li>
-                        <li><a href="#">Privacy policy</a></li>
-                    </ul>
+                <div class="social-links d-flex mt-4">
+                    <a href="https://www.facebook.com/SMAN1Baleendah"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.instagram.com/sman1baleendah"><i class="bi bi-instagram"></i></a>
                 </div>
+            </div>
 
-                <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Our Services</h4>
-                    <ul>
-                        <li><a href="#">Web Design</a></li>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Product Management</a></li>
-                        <li><a href="#">Marketing</a></li>
-                        <li><a href="#">Graphic Design</a></li>
-                    </ul>
+            <!--  Google Maps --> 
+            <div class="col-lg-6 col-md-6">
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps?q=-7.001167,107.622999&hl=es;z=14&output=embed" 
+                        width="100%" 
+                        height="250" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
-
-                <div class="col-lg-4 col-md-12 footer-newsletter">
-                    <h4>Our Newsletter</h4>
-                    <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
-                    <form action="forms/newsletter.php" method="post" class="php-email-form">
-                        <div class="newsletter-form"><input type="email" name="email"><input type="submit"
-                                value="Subscribe"></div>
-                        <div class="loading">Loading</div>
-                        <div class="error-message"></div>
-                        <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-                    </form>
-                </div>
-
             </div>
         </div>
+    </div>
 
-        <div class="container copyright text-center mt-4">
-            <p>© <span>Copyright</span> <strong class="px-1 sitename">Sman</strong> <span> 1 Baleendah</span>
-            </p>
-            <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you've purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-                Semua Hak Cipta Dilindungi Undang-Undang    
-            </div>
+    <div class="container copyright text-center mt-4">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Sman</strong> <span> 1 Baleendah</span>
+        </p>
+        <div class="credits">
+            Semua Hak Cipta Dilindungi Undang-Undang
         </div>
-
-    </footer>
+    </div>
+</footer>
