@@ -16,8 +16,7 @@
                 <ul>    
                     <li class="dropdown"><a href="#"><span>Siswa</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                       <ul>
-                        <li><a href="{{url('eskul')}}">Eskul</a></li>
-                        <li><a href="#eskul-section">Ekstrakurikuler</a></li>
+                        <li><a href="{{url('eskul')}}">Ekstrakurikuler</a></li>
                       </ul>
                     </li>
                 </ul>

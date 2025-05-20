@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class informasi extends Model
 {
     use HasFactory;
+    protected $table = 'informasis';
     protected $fillable = ['id', 'judul','deskripsi','photo'];
     public $timestamp   = true;
 

@@ -27,7 +27,7 @@ class FrontController extends Controller
     }
 
   public function informasi(){
-    $informasi = Informasi::all();
+    $informasi = informasi::all();
     return view('informasi',compact('informasi'));
   }
 

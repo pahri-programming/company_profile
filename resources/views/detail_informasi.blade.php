@@ -1,93 +1,81 @@
 @extends('layouts.frontend')
 @section('content')
+  <style>
+    .bordered-article {
+        border: 2px solid #ddd;
+        border-radius: 12px;
+        padding: 25px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        margin-bottom: 40px;
+    }
+
+    .custom-img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+  </style>
     <!-- Page Title -->
-    <div class="page-title accent-background">
-      <div class="container d-lg-flex justify-content-between align-items-center">
-        <h1 class="mb-2 mb-lg-0">Informasi</h1>
+    <div class="page-title" data-aos="fade">
+        <div class="heading">
+          <div class="container">
+            <div class="row d-flex justify-content-center text-center">
+              <div class="col-lg-8">
+                <h1>Berita & Artikel Terbaru Sma 1 Baleendah</h1>
+              </div>
+            </div>
+          </div>
+        </div>
         <nav class="breadcrumbs">
-          <ol>
-            <li><a href="{{url ('/')}}">Home</a></li>
-            <li class="current">Informasi Detail</li>
-          </ol>
+          <div class="container">
+            <ol>
+              <li><a href="{{url('/')}}">Home</a></li>
+              <li class="current">Informasi</li>
+            </ol>
+          </div>
         </nav>
-      </div>
-    </div><!-- End Page Title -->
+      </div><!-- End Page Title -->
 
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <!-- Blog Details Section -->
-          <section id="blog-details" class="blog-details section">
-            <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <!-- Blog Details Section -->
+                <section id="blog-details" class="blog-details section">
+                    {{-- @foreach ($informasi as $data) --}}
+                        <div class="container">
+                            <article class="article bordered-article">
+                                <div class="post-img">
+                                    <img src="{{ asset('storage/informasi/' . $informasi->photo) }}" alt=""
+                                        class="img-fluid custom-img">
+                                </div>
 
-              <article class="article">
+                                <h2 class="title">{{ $informasi->judul }}</h2>
 
-                <div class="post-img">
-                    <img src="{{asset('storage/informasi/'. $informasi->photo)}}" alt="" style="width: 900px;">
-                </div>
+                                <div class="meta-top">
+                                    <ul>
+                                        <p>{!! $informasi->deskripsi !!}</p>
+                                    </ul>
+                                </div>
 
-                <h2 class="title">Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia</h2>
+                                <div class="content">
+                                    <!-- Konten artikel tidak berubah -->
+                                </div>
 
-                <div class="meta-top">
-                  <ul>
-                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">John Doe</a></li>
-                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2020-01-01">Jan 1, 2022</time></a></li>
-                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12 Comments</a></li>
-                  </ul>
-                </div><!-- End meta top -->
-
-                <div class="content">
-                  <p>
-                    Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta.
-                    Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde soluta. Est cum et quod quos aut ut et sit sunt. Voluptate porro consequatur assumenda perferendis dolore.
-                  </p>
-
-                  <p>
-                    Sit repellat hic cupiditate hic ut nemo. Quis nihil sunt non reiciendis. Sequi in accusamus harum vel aspernatur. Excepturi numquam nihil cumque odio. Et voluptate cupiditate.
-                  </p>
-
-                  <blockquote>
-                    <p>
-                      Et vero doloremque tempore voluptatem ratione vel aut. Deleniti sunt animi aut. Aut eos aliquam doloribus minus autem quos.
-                    </p>
-                  </blockquote>
-
-                  <p>
-                    Sed quo laboriosam qui architecto. Occaecati repellendus omnis dicta inventore tempore provident voluptas mollitia aliquid. Id repellendus quia. Asperiores nihil magni dicta est suscipit perspiciatis. Voluptate ex rerum assumenda dolores nihil quaerat.
-                    Dolor porro tempora et quibusdam voluptas. Beatae aut at ad qui tempore corrupti velit quisquam rerum. Omnis dolorum exercitationem harum qui qui blanditiis neque.
-                    Iusto autem itaque. Repudiandae hic quae aspernatur ea neque qui. Architecto voluptatem magni. Vel magnam quod et tempora deleniti error rerum nihil tempora.
-                  </p>
-
-                  <h3>Et quae iure vel ut odit alias.</h3>
-                  <p>
-                    Officiis animi maxime nulla quo et harum eum quis a. Sit hic in qui quos fugit ut rerum atque. Optio provident dolores atque voluptatem rem excepturi molestiae qui. Voluptatem laborum omnis ullam quibusdam perspiciatis nulla nostrum. Voluptatum est libero eum nesciunt aliquid qui.
-                    Quia et suscipit non sequi. Maxime sed odit. Beatae nesciunt nesciunt accusamus quia aut ratione aspernatur dolor. Sint harum eveniet dicta exercitationem minima. Exercitationem omnis asperiores natus aperiam dolor consequatur id ex sed. Quibusdam rerum dolores sint consequatur quidem ea.
-                    Beatae minima sunt libero soluta sapiente in rem assumenda. Et qui odit voluptatem. Cum quibusdam voluptatem voluptatem accusamus mollitia aut atque aut.
-                  </p>
-
-                  <h3>Ut repellat blanditiis est dolore sunt dolorum quae.</h3>
-                  <p>
-                    Rerum ea est assumenda pariatur quasi et quam. Facilis nam porro amet nostrum. In assumenda quia quae a id praesentium. Quos deleniti libero sed occaecati aut porro autem. Consectetur sed excepturi sint non placeat quia repellat incidunt labore. Autem facilis hic dolorum dolores vel.
-                    Consectetur quasi id et optio praesentium aut asperiores eaque aut. Explicabo omnis quibusdam esse. Ex libero illum iusto totam et ut aut blanditiis. Veritatis numquam ut illum ut a quam vitae.
-                  </p>
-                  <p>
-                    Alias quia non aliquid. Eos et ea velit. Voluptatem maxime enim omnis ipsa voluptas incidunt. Nulla sit eaque mollitia nisi asperiores est veniam.
-                  </p>
-
-                </div><!-- End post content -->
-
-                <div class="meta-bottom">                 
-                  <ul class="cats">
-                    <li><a href="{{url ('/')}}"><b>Kembali</b></a></li>
-                  </ul>                  
-                </div><!-- End meta bottom -->
-
-              </article>
+                                <div class="meta-bottom">
+                                    <p>
+                                        <a href="{{url('/') }}"
+                                            class="btn btn-secondary">Kembali</a>
+                                    </p>
+                                </div>
+                                
+                            </article>
+                        </div>
+                    {{-- @endforeach --}}
+                </section><!-- /Blog Details Section -->
 
             </div>
-          </section><!-- /Blog Details Section -->
-         
         </div>
-      </div>
     </div>
 @endsection

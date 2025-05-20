@@ -64,15 +64,15 @@
         <div class="container">
 
             <div class="row gy-4 justify-content-end">
-                @foreach ($informasi as $artikel)
+                @foreach ($informasi as $info)
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="icon-box d-flex flex-column justify-content-center align-items-center text-end">
-                            <img src="{{ asset('storage/informasi/' . $artikel->photo) }}" alt=""
+                            <img src="{{ asset('storage/informasi/' . $info->photo) }}" alt=""
                                 class="img-fluid rounded mb-2 informasi-img">
-                            <h4>{{ $artikel->judul }}</h4>
-                            <p>{!! Str::limit($artikel->deskripsi, 150) !!}</p>
+                            <h4>{{ $info->judul }}</h4>
+                            <p>{!! Str::limit($info->deskripsi, 150) !!}</p>
                             <p>
-                                <a href="{{ route('detailInformasi', $artikel->id) }}"
+                                <a href="{{ route('detailInformasi', $info->id) }}"
                                     class="btn btn-warning">Selengkapnya</a>
                             </p>
                         </div>
