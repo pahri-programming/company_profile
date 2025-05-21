@@ -1,5 +1,34 @@
 @extends('layouts.frontend')
 @section('content')
+    <style>
+        .icon-box {
+            border: 1px solid #ccc;
+            /* Optional, untuk garis kotak */
+            padding: 10px;
+            text-align: right;
+            width: 100%;
+            /* Pastikan full di dalam col */
+        }
+
+        .icon-box {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .informasi-img {
+            width: 100%;
+            /* Gambar akan mengisi seluruh lebar kotak */
+            height: 200px;
+            /* Ubah sesuai kebutuhan */
+            object-fit: cover;
+            /* Biar gambar nggak gepeng */
+            border-radius: 8px;
+            /* Opsional, biar agak halus */
+        }
+    </style>
 
     <body class="courses-page">
 
@@ -20,15 +49,15 @@
                                 </p>
                                 <p class="mb-0"><b>Misi</b></p>
                                 <ol>
-                                    <li>
+                                    <p>
                                         Meningkatkan dan memelihara kebersihan, keindahan, kenyamanan, kesehatan,
                                         kerindangan, dan kekeluargaan melalui pendidikan dan latihan karakter.
-                                    </li>
-                                    <li>
+                                    </p>
+                                    <p>
                                         Penanaman nilai-nilai luhur budaya daerah dan nasional, pembinaan karakter, dan budi
                                         pekerti bangsa melalui revitalisasi budaya Sunda dan implementasinya dalam
                                         pendidikan.
-                                    </li>
+                                    </p>
                                 </ol>
                             </div>
                         </div>
@@ -69,35 +98,7 @@
                             </div>
                         @endforeach
                     </div>
-                    <style>
-                        .icon-box {
-                            border: 1px solid #ccc;
-                            /* Optional, untuk garis kotak */
-                            padding: 10px;
-                            text-align: right;
-                            width: 100%;
-                            /* Pastikan full di dalam col */
-                        }
 
-                        .icon-box {
-                            border: 1px solid #ddd;
-                            border-radius: 8px;
-                            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-                            background-color: #fff;
-                            text-align: center;
-                        }
-
-                        .informasi-img {
-                            width: 100%;
-                            /* Gambar akan mengisi seluruh lebar kotak */
-                            height: 200px;
-                            /* Ubah sesuai kebutuhan */
-                            object-fit: cover;
-                            /* Biar gambar nggak gepeng */
-                            border-radius: 8px;
-                            /* Opsional, biar agak halus */
-                        }
-                    </style>
                 </div>
 
                 </div>

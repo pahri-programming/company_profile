@@ -1,5 +1,51 @@
 @extends('layouts.frontend')
 @section('content')
+    <style>
+        .prestasi-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .card {
+            background-color: #263e8c;
+            color: white;
+            border-radius: 20px;
+            width: 300px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .card-text {
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 1.4em;
+        }
+
+        .prestasi-container .card-text p {
+            margin: 4px 0;
+            /* Atur jarak antar paragraf */
+            line-height: 1.4;
+            /* Perkecil tinggi baris jika terlalu renggang */
+        }
+
+        .prestasi-container .card-text {
+            padding: 10px;
+
+        }
+    </style>
 
     <body class="courses-page">
         <main class="main">
@@ -26,62 +72,32 @@
 
             <!-- Courses Section -->
             <section id="prestasi-section" class="section why-us">
-                @foreach ($prestasi as $item)
+                <!-- Judul hanya ditampilkan sekali -->
                 <div class="container section-title" data-aos="fade-up">
                     <h2>Prestasi Sekolah</h2>
                     <p>Siswa</p>
-                </div><!-- End Section Title -->
+                </div>
+
+                <!-- Container umum -->
                 <div class="container" data-aos="fade-up">
-                    <style>
-                        .prestasi-container {
-                            display: flex;
-                            flex-wrap: wrap;
-                            justify-content: center;
-                            gap: 30px;
-                        }
-
-                        .card {
-                            background-color: #263e8c;
-                            color: white;
-                            border-radius: 20px;
-                            width: 300px;
-                            padding: 20px;
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                            text-align: center;
-                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                        }
-
-                        .card img {
-                            width: 100%;
-                            height: auto;
-                            border-radius: 10px;
-                            margin-bottom: 15px;
-                        }
-
-                        .card-text {
-                            font-size: 18px;
-                            font-weight: bold;
-                            line-height: 1.4em;
-                        }
-                    </style>
-
                     <div class="prestasi-container">
-                        <div class="card">
-                            <img src="{{ asset('storage/prestasi/' . $item->photo) }}" alt=""
-                            class="img-fluid rounded mb-2 prestasi-img">
-                            <div class="card-text">
-                               <p>{{$item->tgl_prestas}}</p>
-                                <p>{{$item->nama_prestasi}}</p>
-                                <p>{{$item->tingkat}}</p>
-                                <p>{!!$item->deskripsi!!}</p>
+                        @foreach ($prestasi as $item)
+                            <div class="card">
+                                <img src="{{ asset('storage/prestasi/' . $item->photo) }}" alt=""
+                                    class="img-fluid rounded mb-2 prestasi-img">
+                                <div class="card-text">
+                                    <p class="mb-1">
+                                        {{ \Carbon\Carbon::parse($item->tgl_prestasi)->translatedFormat('d F Y') }}</p>
+                                    <p class="mb-1">{{ $item->nama_prestasi }}</p>
+                                    <p class="mb-1">{{ $item->tingkat }}</p>
+                                    <p class="mb-1">{!! $item->deskripsi !!}</p>
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
-                @endforeach
             </section>
+
         </main>
     </body>
 @endsection

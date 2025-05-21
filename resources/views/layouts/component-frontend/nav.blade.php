@@ -12,7 +12,7 @@
                 <li><a href="{{ url('/') }}" class="active">Beranda</a></li>
                 <li><a href="{{ url('informasi') }}">Tentang Sekolah</a></li>
                 <li><a href="{{ url('prestasi') }}">Prestasi</a></li>
-                <li><a href="#karyawan-section">Karyawan</a></li>
+                <li><a href="{{ url('karyawan')}}">Karyawan</a></li>
                 <li><a href="#fasilitas-section">Fasilitas</a></li>
                 <ul>    
                     <li class="dropdown"><a href="#"><span>Siswa</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>

@@ -29,6 +29,8 @@ Route::get('/', [FrontController::class, 'index']);
 Route::get('/informasi', [FrontController::class, 'informasi']);
 Route::get('/informasi/{id}', [FrontController::class, 'detailInformasi'])->name('detailInformasi');
 Route::get('/prestasi', [FrontController::class, 'prestasi']);
+Route::get('/karyawan', [FrontController::class, 'karyawan']);
+
 
 
 route::prefix('admin')->middleware('auth')->group(function () {

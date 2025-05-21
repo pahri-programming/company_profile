@@ -6,7 +6,6 @@ use App\Models\Fasilitas;
 use App\Models\informasi;
 use App\Models\karyawan;
 use App\Models\Prestasi;
-use Illuminate\Http\Request;
 
 class FrontController extends Controller
 {
@@ -21,23 +20,32 @@ class FrontController extends Controller
         $karyawan  = karyawan::all();
         $eskul     = Eskul::all();
         $fasilitas = Fasilitas::all();
-        $prestasi = Prestasi::all();
+        $prestasi  = Prestasi::all();
 
-        return view('welcome', compact('informasi', 'karyawan', 'eskul', 'fasilitas','prestasi'));
+        return view('welcome', compact('informasi', 'karyawan', 'eskul', 'fasilitas', 'prestasi'));
     }
 
-  public function informasi(){
-    $informasi = informasi::all();
-    return view('informasi',compact('informasi'));
-  }
+    public function informasi()
+    {
+        $informasi = informasi::orderBy('id', 'desc')->get();
+        return view('informasi', compact('informasi'));
+    }
 
-  public function detailInformasi($id){
-    $informasi = informasi::findOrFail($id);
-    return view('detail_informasi', compact('informasi'));
-  }
+    public function detailInformasi($id)
+    {
+        $informasi = informasi::findOrFail($id);
+        return view('detail_informasi', compact('informasi'));
+    }
 
-  public function prestasi(){
-    $prestasi = Prestasi::all();
-    return view('prestasi',compact('prestasi'));
-  }
+    public function prestasi()
+    {
+        $prestasi = Prestasi::orderBy('id', 'desc')->get();
+        return view('prestasi', compact('prestasi'));
+    }
+
+    public function karyawan()
+    {
+        $karyawan = Karyawan::orderBy('id', 'desc')->get();
+        return view('karyawan', compact('karyawan'));
+    }
 }

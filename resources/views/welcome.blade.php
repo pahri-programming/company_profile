@@ -5,7 +5,6 @@
         <img src="{{ asset('front/img/sman1.jpg') }}" alt="Sman 1 Baleendah"
             style="width: 100%; height: auto; object-fit: contain;" class="img-fluid">
 
-
         <style>
             .hero-header {
                 background-image: url('{{ asset('front/img/sman1.jpg') }}');
@@ -13,6 +12,34 @@
                 background-repeat: no-repeat;
                 background-position: center top;
                 height: 100vh;
+
+                .icon-box {
+                    border: 1px solid #ccc;
+                    /* Optional, untuk garis kotak */
+                    padding: 10px;
+                    text-align: right;
+                    width: 100%;
+                    /* Pastikan full di dalam col */
+                }
+
+                .icon-box {
+                    border: 1px solid #ddd;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+                    background-color: #fff;
+                    text-align: center;
+                }
+
+                .informasi-img {
+                    width: 100%;
+                    /* Gambar akan mengisi seluruh lebar kotak */
+                    height: 200px;
+                    /* Ubah sesuai kebutuhan */
+                    object-fit: cover;
+                    /* Biar gambar nggak gepeng */
+                    border-radius: 8px;
+                    /* Opsional, biar agak halus */
+                }
             }
         </style>
 
@@ -72,42 +99,12 @@
                             <h4>{{ $info->judul }}</h4>
                             <p>{!! Str::limit($info->deskripsi, 150) !!}</p>
                             <p>
-                                <a href="{{ route('detailInformasi', $info->id) }}"
-                                    class="btn btn-warning">Selengkapnya</a>
+                                <a href="{{ route('detailInformasi', $info->id) }}" class="btn btn-warning">Selengkapnya</a>
                             </p>
                         </div>
                     </div>
                 @endforeach
             </div>
-            <style>
-                .icon-box {
-                    border: 1px solid #ccc;
-                    /* Optional, untuk garis kotak */
-                    padding: 10px;
-                    text-align: right;
-                    width: 100%;
-                    /* Pastikan full di dalam col */
-                }
-
-                .icon-box {
-                    border: 1px solid #ddd;
-                    border-radius: 8px;
-                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-                    background-color: #fff;
-                    text-align: center;
-                }
-
-                .informasi-img {
-                    width: 100%;
-                    /* Gambar akan mengisi seluruh lebar kotak */
-                    height: 200px;
-                    /* Ubah sesuai kebutuhan */
-                    object-fit: cover;
-                    /* Biar gambar nggak gepeng */
-                    border-radius: 8px;
-                    /* Opsional, biar agak halus */
-                }
-            </style>
         </div>
 
         </div>
