@@ -14,7 +14,7 @@ class InformasiController extends Controller
      */
     public function index()
     {
-        $informasi = informasi::all();
+        $informasi = informasi::orderBy('id', 'desc')->get();
         return view('admin-view.informasi.index', compact('informasi'));
     }
 

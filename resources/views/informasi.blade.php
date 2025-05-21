@@ -45,100 +45,67 @@
             </div><!-- End Page Title -->
 
             <!-- Courses Section -->
-            <section id="courses" class="courses section">
+            <section id="informasi-section" class="section why-us">
+                <div class="container section-title" data-aos="fade-up">
+                    <h2>Tentang Sekolah</h2>
+                    <p>Artikel</p>
+                </div><!-- End Section Title -->
 
                 <div class="container">
 
-                    <div class="row">
-
-                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="course-item">
-                                <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
-                                <div class="course-content">
-                                    <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <p class="category">Web Development</p>
-                                        <p class="price">$169</p>
-                                    </div>
-
-                                    <h3><a href="course-details.html">Website Design</a></h3>
-                                    <p class="description">Et architecto provident deleniti facere repellat nobis iste. Id
-                                        facere quia quae dolores dolorem tempore.</p>
-                                    <div class="trainer d-flex justify-content-between align-items-center">
-                                        <div class="trainer-profile d-flex align-items-center">
-                                            <img src="assets/img/trainers/trainer-1-2.jpg" class="img-fluid" alt="">
-                                            <a href="" class="trainer-link">Antonio</a>
-                                        </div>
-                                        <div class="trainer-rank d-flex align-items-center">
-                                            <i class="bi bi-person user-icon"></i>&nbsp;50
-                                            &nbsp;&nbsp;
-                                            <i class="bi bi-heart heart-icon"></i>&nbsp;65
-                                        </div>
-                                    </div>
+                    <div class="row gy-4 justify-content-end">
+                        @foreach ($informasi as $info)
+                            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                                <div class="icon-box d-flex flex-column justify-content-center align-items-center text-end">
+                                    <img src="{{ asset('storage/informasi/' . $info->photo) }}" alt=""
+                                        class="img-fluid rounded mb-2 informasi-img">
+                                    <h4>{{ $info->judul }}</h4>
+                                    <p>{!! Str::limit($info->deskripsi, 150) !!}</p>
+                                    <p>
+                                        <a href="{{ route('detailInformasi', $info->id) }}"
+                                            class="btn btn-warning">Selengkapnya</a>
+                                    </p>
                                 </div>
                             </div>
-                        </div> <!-- End Course Item-->
-
-                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
-                            data-aos-delay="200">
-                            <div class="course-item">
-                                <img src="assets/img/course-2.jpg" class="img-fluid" alt="...">
-                                <div class="course-content">
-                                    <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <p class="category">Marketing</p>
-                                        <p class="price">$250</p>
-                                    </div>
-
-                                    <h3><a href="course-details.html">Search Engine Optimization</a></h3>
-                                    <p class="description">Et architecto provident deleniti facere repellat nobis iste. Id
-                                        facere quia quae dolores dolorem tempore.</p>
-                                    <div class="trainer d-flex justify-content-between align-items-center">
-                                        <div class="trainer-profile d-flex align-items-center">
-                                            <img src="assets/img/trainers/trainer-2-2.jpg" class="img-fluid" alt="">
-                                            <a href="" class="trainer-link">Lana</a>
-                                        </div>
-                                        <div class="trainer-rank d-flex align-items-center">
-                                            <i class="bi bi-person user-icon"></i>&nbsp;35
-                                            &nbsp;&nbsp;
-                                            <i class="bi bi-heart heart-icon"></i>&nbsp;42
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- End Course Item-->
-
-                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in"
-                            data-aos-delay="300">
-                            <div class="course-item">
-                                <img src="assets/img/course-3.jpg" class="img-fluid" alt="...">
-                                <div class="course-content">
-                                    <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <p class="category">Content</p>
-                                        <p class="price">$180</p>
-                                    </div>
-
-                                    <h3><a href="course-details.html">Copywriting</a></h3>
-                                    <p class="description">Et architecto provident deleniti facere repellat nobis iste. Id
-                                        facere quia quae dolores dolorem tempore.</p>
-                                    <div class="trainer d-flex justify-content-between align-items-center">
-                                        <div class="trainer-profile d-flex align-items-center">
-                                            <img src="assets/img/trainers/trainer-3-2.jpg" class="img-fluid" alt="">
-                                            <a href="" class="trainer-link">Brandon</a>
-                                        </div>
-                                        <div class="trainer-rank d-flex align-items-center">
-                                            <i class="bi bi-person user-icon"></i>&nbsp;20
-                                            &nbsp;&nbsp;
-                                            <i class="bi bi-heart heart-icon"></i>&nbsp;85
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- End Course Item-->
-
+                        @endforeach
                     </div>
+                    <style>
+                        .icon-box {
+                            border: 1px solid #ccc;
+                            /* Optional, untuk garis kotak */
+                            padding: 10px;
+                            text-align: right;
+                            width: 100%;
+                            /* Pastikan full di dalam col */
+                        }
+
+                        .icon-box {
+                            border: 1px solid #ddd;
+                            border-radius: 8px;
+                            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+                            background-color: #fff;
+                            text-align: center;
+                        }
+
+                        .informasi-img {
+                            width: 100%;
+                            /* Gambar akan mengisi seluruh lebar kotak */
+                            height: 200px;
+                            /* Ubah sesuai kebutuhan */
+                            object-fit: cover;
+                            /* Biar gambar nggak gepeng */
+                            border-radius: 8px;
+                            /* Opsional, biar agak halus */
+                        }
+                    </style>
+                </div>
 
                 </div>
 
-            </section><!-- /Courses Section -->
+                </div>
+
+            </section>
+            <!-- /Courses Section -->
 
         </main>
 
